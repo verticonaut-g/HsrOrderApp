@@ -56,7 +56,7 @@ build/
 
 # OS generated files #
 .DS_Store*
-Icon?
+# Icon?
 
 # Visual C++ cache files
 ipch/
@@ -179,7 +179,7 @@ $RECYCLE.BIN/
 # Mac desktop service store files
 .DS_Store
 
-# SASS Compiler cache
+# SASS Compiler
 .sass-cache
 
 # Visual Studio 2014 CTP
