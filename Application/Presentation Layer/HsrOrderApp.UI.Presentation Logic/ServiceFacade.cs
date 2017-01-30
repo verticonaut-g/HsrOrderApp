@@ -211,6 +211,23 @@ namespace HsrOrderApp.UI.PresentationLogic
             }
         }
 
+        private IList<SupplierListDTO> getSuppliers(SupplierSearchType searchType, string name)
+        {
+            try
+            {
+                GetSuppliersRequest request = new GetSuppliersRequest();
+                request.SearchType = searchType;
+                request.SupplierName = name;
+                GetSuppliersResponse response = Service.GetSuppliersByCriteria(request);
+                return response.Suppliers;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+                return new List<SupplierListDTO>();
+            }
+        }
+
         private IList<CustomerListDTO> getCustomers(CustomerSearchType searchType, string name, string city)
         {
             try
@@ -497,7 +514,7 @@ namespace HsrOrderApp.UI.PresentationLogic
 
         public IList<SupplierListDTO> GetAllSuppliers()
         {
-           return new List<SupplierListDTO>();
+           return getSuppliers(SupplierSearchType.None, default(string));
         }
 
         public void StoreSupplier(SupplierDTO supplier)

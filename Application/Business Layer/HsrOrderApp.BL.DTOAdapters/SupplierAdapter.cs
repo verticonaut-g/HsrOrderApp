@@ -14,11 +14,18 @@ namespace HsrOrderApp.BL.DTOAdapters
     {
         #region SupplierToDTO
 
-        public static IList<SupplierDTO> SuppliersToDtos(IQueryable<Supplier> suppliers)
+        public static IList<SupplierListDTO> SuppliersToDtos(IQueryable<Supplier> suppliers)
         {
-            IQueryable<SupplierDTO> supplierDTOs = from p in suppliers
-                                                 select SupplierToDto(p);
-            return supplierDTOs.ToList();
+            IQueryable<SupplierListDTO> supplierListDTOs = from c in suppliers
+                                                           select new SupplierListDTO()
+                                                           {
+                                                               Name = c.Name,
+                                                               AccountNumber = c.AccountNumber,
+                                                               CreditRating = (CreditRating)c.CreditRating,
+                                                               PreferredSupplierFlag = c.PreferredSupplierFlag,
+                                                               ActiveFlag = c.ActiveFlag
+                                                           };
+            return supplierListDTOs.ToList();
         }
 
         public static SupplierDTO SupplierToDto(Supplier p)

@@ -5,6 +5,7 @@ using System.Text;
 using HsrOrderApp.SharedLibraries.DTO.Base;
 using System.Runtime.Serialization;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+using HsrOrderApp.SharedLibraries.SharedEnums;
 
 namespace HsrOrderApp.SharedLibraries.DTO
 {
@@ -13,7 +14,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
 
         private string _name;
         private string _accountNumber;
-        private int _creatingRating;
+        private int _creditRating;
         private bool _preferredSupplierFlag;
         private bool _activeFlag;
         private string _purchasingWebServiceURL;
@@ -22,7 +23,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
         {
             this.Name = string.Empty;
             this.AccountNumber = string.Empty;
-            this.CreatingRating = default(int);
+            this.CreditRating = default(int);
             this.PreferredSupplierFlag = true;
             this.ActiveFlag = true;
             this.PurchasingWebServiceURL = string.Empty;
@@ -102,18 +103,10 @@ namespace HsrOrderApp.SharedLibraries.DTO
         }
 
         [DataMember]
-        [RangeValidator(0, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]
-        public int CreatingRating
+        public CreditRating CreditRating
         {
-            get { return _creatingRating; }
-            set
-            {
-                if (value != _creatingRating)
-                {
-                    this._creatingRating = value;
-                    OnPropertyChanged(() => CreatingRating);
-                }
-            }
+            get { return (CreditRating)_creditRating; }
+            set { _creditRating = (int)value; }
         }
 
     }

@@ -54,6 +54,39 @@ namespace HsrOrderApp.UI.Mvc.Controllers
             return StoreEntity(vm, redirectButton);
         }
 
+        // GET: Supplier/Edit/5
+        public ActionResult Edit(int id)
+        {
+            var vm = GetViewModelFromTempData<SupplierViewModel>();
+            //bool needsRefresh = NeedsRefresh(vm, id);
+            bool needsRefresh = true;
+
+            if (needsRefresh)
+            {
+                RemoveViewModelFromTempData<SupplierViewModel>();
+                //RemoveViewModelFromTempData<AddressViewModel>(typeof(AddressController).FullName);
+
+                SupplierDTO item = Service.GetSupplierById(id);
+                return DisplayDetails(item);
+            }
+
+            return DisplayDetails(vm.Model);
+        }
+
+        // GET: Supplier/Delete/5
+        public ActionResult Delete(int id)
+        {
+            try
+            {
+                Service.DeleteSupplier(id);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Error", ex);
+            }
+            return RedirectToAction("Index");
+        }
+
         protected ActionResult DisplayDetails(SupplierDTO item)
         {
             var vm = GetViewModelFromTempData<SupplierViewModel>() ?? new SupplierViewModel();

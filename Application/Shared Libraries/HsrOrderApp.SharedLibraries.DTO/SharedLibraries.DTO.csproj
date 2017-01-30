@@ -96,6 +96,8 @@
     <Compile Include="ChangeSet\ChangeItem.cs" />
     <Compile Include="AddressDTO.cs" />
     <Compile Include="Requests_Responses\GetSupplierResponse.cs" />
+    <Compile Include="Requests_Responses\GetSuppliersRequest.cs" />
+    <Compile Include="Requests_Responses\GetSuppliersResponse.cs" />
     <Compile Include="Requests_Responses\StoreSupplierRequest.cs" />
     <Compile Include="Requests_Responses\StoreSupplierResponse.cs" />
     <Compile Include="SupplierProductDTO.cs" />

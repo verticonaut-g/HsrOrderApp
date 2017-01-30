@@ -29,12 +29,28 @@ namespace HsrOrderApp.BL.BusinessComponents
             set { this.rep = value; }
         }
 
-        public Supplier GetCustomerById(int supplierId)
+        public Supplier GetSupplierById(int supplierId)
         {
             Supplier supplier = rep.GetById(supplierId);
             return supplier;
         }
 
+
+        public IQueryable<Supplier> GetSuppliersByCriteria(SupplierSearchType searchType, string name)
+        {
+            IQueryable<Supplier> suppliers = new List<Supplier>().AsQueryable();
+
+            switch (searchType)
+            {
+                case SupplierSearchType.None:
+                    suppliers = rep.GetAll();
+                    break;
+                case SupplierSearchType.ByName:
+                    suppliers = rep.GetAll().Where(cu => cu.Name == name);
+                    break;
+            }
+            return suppliers;
+        }
 
         public int StoreSupplier(Supplier supplier /*, IEnumerable<ChangeItem> changeItems*/)
         {

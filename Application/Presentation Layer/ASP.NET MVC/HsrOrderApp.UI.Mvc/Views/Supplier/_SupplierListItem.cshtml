@@ -21,9 +21,6 @@
         <th>
             @Strings.SupplierDetailView_ActiveFlag
         </th>
-        <th>
-            @Strings.SupplierDetailView_PurchaseWebServiceURL
-        </th>
         <th></th>
     </tr>
 
@@ -37,7 +34,7 @@
                 @Html.DisplayFor(modelItem => item.AccountNumber)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.CreatingRating)
+                @Html.DisplayFor(modelItem => item.CreditRating)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.PreferredSupplierFlag)
@@ -46,12 +43,9 @@
                 @Html.DisplayFor(modelItem => item.ActiveFlag)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.PurchasingWebServiceURL)
-            </td>
-            <td>
-                @*@Html.ActionLink(@Strings.EditCommand, "Edit", new { id = item.Id }, new { @class = "btn btn-default" })*@
+                @Html.ActionLink(@Strings.EditCommand, "Edit", new { id = item.Id }, new { @class = "btn btn-default" })
                 @Html.ActionLink(@Strings.DetailsCommand, "Details", new { id = item.Id }, new { @class = "btn btn-default" })
-                @*@Html.ActionLink(@Strings.DeleteCommand, "Delete", new { id = item.Id }, new { @class = "btn btn-default" })*@
+                @Html.ActionLink(@Strings.DeleteCommand, "Delete", new { id = item.Id }, new { @class = "btn btn-default" })
             </td>
         </tr>
     }

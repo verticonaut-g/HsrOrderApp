@@ -1,4 +1,5 @@
-﻿Microsoft Visual Studio Solution File, Format Version 12.00
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
@@ -98,8 +99,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ASP.NET MVC", "ASP.NET MVC", "{86307EDE-808F-4AC8-90FE-E7926C0EDFFB}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UI.Mvc", "Application\Presentation Layer\ASP.NET MVC\HsrOrderApp.UI.Mvc\UI.Mvc.csproj", "{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SL.SupplierService", "Application\Service Layer\HsrOrderApp.SL.SupplierService\SL.SupplierService.csproj", "{0AAAF100-303C-4855-9506-4DEDB1110807}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -211,10 +210,6 @@ Global
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0AAAF100-303C-4855-9506-4DEDB1110807}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0AAAF100-303C-4855-9506-4DEDB1110807}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0AAAF100-303C-4855-9506-4DEDB1110807}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0AAAF100-303C-4855-9506-4DEDB1110807}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -256,7 +251,6 @@ Global
 		{D2B463B5-3B05-4447-9290-96C27991BC51} = {121D45BF-1164-45D7-A1BA-8E7A7D66668B}
 		{86307EDE-808F-4AC8-90FE-E7926C0EDFFB} = {AB3F1583-6840-417E-A933-5D63BC52AC31}
 		{4A2035D5-2FF5-4332-B3E7-36D93FB756C1} = {86307EDE-808F-4AC8-90FE-E7926C0EDFFB}
-		{0AAAF100-303C-4855-9506-4DEDB1110807} = {8FE631F2-2355-4B8E-96DB-03D5005D27C6}
 	EndGlobalSection
 	GlobalSection(TestCaseManagementSettings) = postSolution
 		CategoryFile = HsrOrderApp.vsmdi

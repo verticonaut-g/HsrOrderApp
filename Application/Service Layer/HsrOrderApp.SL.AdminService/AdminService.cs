@@ -270,7 +270,10 @@ namespace HsrOrderApp.SL.AdminService
             return response;
         }
 
+        #endregion
 
+
+        #region Supplier
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.ADMIN)]
         public StoreSupplierResponse StoreSupplier(StoreSupplierRequest request)
         {
@@ -282,6 +285,17 @@ namespace HsrOrderApp.SL.AdminService
             return response;
         }
 
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSuppliersResponse GetSuppliersByCriteria(GetSuppliersRequest request)
+        {
+            GetSuppliersResponse response = new GetSuppliersResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            IQueryable<Supplier> suppliers = bc.GetSuppliersByCriteria(request.SearchType, request.SupplierName);
+            response.Suppliers = SupplierAdapter.SuppliersToDtos(suppliers);
+
+            return response;
+        }
 
         public GetSupplierResponse GetSupplier()
         {
