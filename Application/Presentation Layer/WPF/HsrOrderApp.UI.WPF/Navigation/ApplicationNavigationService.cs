@@ -1,6 +1,7 @@
 ﻿#region
 
 using System;
+using System.Windows.Documents;
 using HsrOrderApp.UI.PresentationLogic;
 using HsrOrderApp.UI.WPF.ViewModels;
 using HsrOrderApp.UI.WPF.ViewModels.Base;
@@ -8,6 +9,7 @@ using HsrOrderApp.UI.WPF.ViewModels.Customer;
 using HsrOrderApp.UI.WPF.ViewModels.Order;
 using HsrOrderApp.UI.WPF.ViewModels.Product;
 using HsrOrderApp.UI.WPF.ViewModels.Security;
+using HsrOrderApp.UI.WPF.ViewModels.Supplier;
 
 #endregion
 
@@ -48,6 +50,9 @@ namespace HsrOrderApp.UI.WPF.Navigation
                         break;
                     case "User":
                         this._mainWindowViewModel.CurrentViewModel = new UserViewModel();
+                        break;
+                    case "Supplier":
+                        this._mainWindowViewModel.CurrentViewModel = new SupplierViewModel();
                         break;
                     default:
                         throw new Exception(string.Format("Cannot navigate to URL '{0}'.", url));

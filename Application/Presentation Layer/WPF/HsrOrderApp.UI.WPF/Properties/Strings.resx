@@ -177,6 +177,9 @@
   <data name="CustomerViewModel_DisplayName" xml:space="preserve">
     <value>Kundenverwaltung</value>
   </data>
+  <data name="SupplierViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
   <data name="CustomerView_Description" xml:space="preserve">
     <value>Verwalten Sie die Kunden.</value>
   </data>
@@ -186,6 +189,30 @@
   <data name="CustomerView_Name" xml:space="preserve">
     <value>Kundenname</value>
   </data>
+
+  <data name="SupplierView_DisplayName" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
+  </data>
+  <data name="SupplierView_Description" xml:space="preserve">
+    <value>Beschreibung</value>
+  </data>
+
+  <data name="SupplierView_Name" xml:space="preserve">
+    <value>Lieferantenname</value>
+  </data>
+  <data name="SupplierView_AccountNumber" xml:space="preserve">
+    <value>Lieferantennummer</value>
+  </data>
+  <data name="SupplierView_CreditRating" xml:space="preserve">
+    <value>Bewertung</value>
+  </data>
+  <data name="SupplierView_IsPreferedSupplier" xml:space="preserve">
+    <value>Bonität</value>
+  </data>
+  <data name="SupplierView_IsActive" xml:space="preserve">
+    <value>Aktiv</value>
+  </data>
+  
   <data name="CustomerView_OpenOrders" xml:space="preserve">
     <value>Anzahl offene Bestellungen</value>
   </data>
@@ -221,6 +248,9 @@
   </data>
   <data name="MainWindow_hlkOrder" xml:space="preserve">
     <value>Bestellverwaltung</value>
+  </data>
+  <data name="MainWindow_hlkSupplier" xml:space="preserve">
+    <value>Lieferantenverwaltung</value>
   </data>
   <data name="MainWindow_hlkProduct" xml:space="preserve">
     <value>Produktverwaltung</value>

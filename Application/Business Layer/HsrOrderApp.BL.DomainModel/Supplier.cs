@@ -12,6 +12,7 @@ namespace HsrOrderApp.BL.DomainModel
 
         public Supplier()
         {
+            this.SupplierId = default(int);
             this.Name = string.Empty;
             this.AccountNumber = string.Empty;
             this.CreditRating = default(int);

@@ -274,7 +274,7 @@ namespace HsrOrderApp.SL.AdminService
 
 
         #region Supplier
-        [PrincipalPermission(SecurityAction.Demand, Role = Roles.ADMIN)]
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
         public StoreSupplierResponse StoreSupplier(StoreSupplierRequest request)
         {
             StoreSupplierResponse response = new StoreSupplierResponse();
@@ -297,9 +297,22 @@ namespace HsrOrderApp.SL.AdminService
             return response;
         }
 
-        public GetSupplierResponse GetSupplier()
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public GetSupplierResponse GetSupplierById()
         {
             throw new NotImplementedException();
+            
+        }
+
+        [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
+        public DeleteSupplierResponse DeleteSupplier(DeleteSupplierRequest request)
+        {
+            DeleteSupplierResponse response = new DeleteSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            bc.DeleteSupplier(request.SupplierId);
+
+            return response;
         }
 
         #endregion

@@ -127,15 +127,15 @@
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Strings.en-US.Designer.cs">
-      <DependentUpon>Strings.en-US.resx</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <Compile Include="Properties\Strings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Strings.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Strings.en-US.Designer.cs">
+      <DependentUpon>Strings.en-US.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="ViewModels\Base\DetailViewModelBase.cs" />
     <Compile Include="ViewModels\Base\IDetailViewModelBase.cs" />
@@ -158,11 +158,15 @@
     <Compile Include="ViewModels\Customer\CustomerViewModel.cs" />
     <Compile Include="ViewModels\RelayCommand.cs" />
     <Compile Include="ViewModels\Base\ViewModelBase.cs" />
+    <Compile Include="ViewModels\Supplier\SupplierViewModel.cs" />
     <Compile Include="Views\AddressDetail.xaml.cs">
       <DependentUpon>AddressDetail.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\RoleDetail.xaml.cs">
       <DependentUpon>RoleDetail.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SupplierView.xaml.cs">
+      <DependentUpon>SupplierView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\UserDetail.xaml.cs">
       <DependentUpon>UserDetail.xaml</DependentUpon>
@@ -201,8 +205,8 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Strings.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
-      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Strings.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="..\..\..\Service Layer\HsrOrderApp.SL.ServiceHosting\Unity.config">
       <Link>Unity.config</Link>
@@ -242,6 +246,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Views\SupplierView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\UserDetail.xaml">
       <Generator>MSBuild:Compile</Generator>

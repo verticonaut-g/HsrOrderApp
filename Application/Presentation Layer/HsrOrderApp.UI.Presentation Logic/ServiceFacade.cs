@@ -210,24 +210,7 @@ namespace HsrOrderApp.UI.PresentationLogic
                 if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
             }
         }
-
-        private IList<SupplierListDTO> getSuppliers(SupplierSearchType searchType, string name)
-        {
-            try
-            {
-                GetSuppliersRequest request = new GetSuppliersRequest();
-                request.SearchType = searchType;
-                request.SupplierName = name;
-                GetSuppliersResponse response = Service.GetSuppliersByCriteria(request);
-                return response.Suppliers;
-            }
-            catch (Exception ex)
-            {
-                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-                return new List<SupplierListDTO>();
-            }
-        }
-
+        
         private IList<CustomerListDTO> getCustomers(CustomerSearchType searchType, string name, string city)
         {
             try
@@ -495,6 +478,9 @@ namespace HsrOrderApp.UI.PresentationLogic
             _service = null;
         }
 
+        #endregion
+
+        #region Supplier
         public SupplierDTO GetSupplierById(int id)
         {
             //try
@@ -517,6 +503,23 @@ namespace HsrOrderApp.UI.PresentationLogic
            return getSuppliers(SupplierSearchType.None, default(string));
         }
 
+        private IList<SupplierListDTO> getSuppliers(SupplierSearchType searchType, string name)
+        {
+            try
+            {
+                GetSuppliersRequest request = new GetSuppliersRequest();
+                request.SearchType = searchType;
+                request.SupplierName = name;
+                GetSuppliersResponse response = Service.GetSuppliersByCriteria(request);
+                return response.Suppliers;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+                return new List<SupplierListDTO>();
+            }
+        }
+
         public void StoreSupplier(SupplierDTO supplier)
         {
             try
@@ -532,10 +535,20 @@ namespace HsrOrderApp.UI.PresentationLogic
             }
         }
 
-        public void DeleteSupplier(int id)
+        public void DeleteSupplier(int supplierId)
         {
-            throw new NotImplementedException();
+            try
+            {
+                DeleteSupplierRequest request = new DeleteSupplierRequest();
+                request.SupplierId = supplierId;
+                DeleteSupplierResponse response = Service.DeleteSupplier(request);
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+            }
         }
+
 
         #endregion
     }

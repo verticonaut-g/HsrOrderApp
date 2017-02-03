@@ -19,6 +19,7 @@ namespace HsrOrderApp.BL.DTOAdapters
             IQueryable<SupplierListDTO> supplierListDTOs = from c in suppliers
                                                            select new SupplierListDTO()
                                                            {
+                                                               Id = c.SupplierId,
                                                                Name = c.Name,
                                                                AccountNumber = c.AccountNumber,
                                                                CreditRating = (CreditRating)c.CreditRating,
@@ -27,6 +28,7 @@ namespace HsrOrderApp.BL.DTOAdapters
                                                            };
             return supplierListDTOs.ToList();
         }
+
 
         public static SupplierDTO SupplierToDto(Supplier p)
         {
