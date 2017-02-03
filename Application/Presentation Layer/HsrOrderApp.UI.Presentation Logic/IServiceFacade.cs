@@ -36,7 +36,7 @@ namespace HsrOrderApp.UI.PresentationLogic
 //        IList<SupplierListDTO> GetSupplierByName(string name);
         IList<SupplierListDTO> GetAllSuppliers();
         void StoreSupplier(SupplierDTO supplier);
-        void DeleteSupplier(int id);
+        void DeleteSupplier(int supplierId);
 
         CurrentUserDTO GetCurrentUser();
         UserDTO GetUserById(int id);

@@ -64,5 +64,10 @@ namespace HsrOrderApp.BL.BusinessComponents
 
             return supplierId;
         }
+
+        public void DeleteSupplier(int supplierId)
+        {
+            rep.DeleteSupplier(supplierId);
+        }
     }
 }
