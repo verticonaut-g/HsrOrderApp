@@ -29,6 +29,7 @@ namespace HsrOrderApp.BL.DTOAdapters
             return supplierListDTOs.ToList();
         }
 
+
         public static SupplierDTO SupplierToDto(Supplier p)
         {
             SupplierDTO dto = new SupplierDTO()
