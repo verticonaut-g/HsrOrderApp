@@ -298,10 +298,15 @@ namespace HsrOrderApp.SL.AdminService
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
-        public GetSupplierResponse GetSupplierById()
+        public GetSupplierResponse GetSupplierById(GetSupplierRequest request)
         {
-            throw new NotImplementedException();
-            
+            GetSupplierResponse response = new GetSupplierResponse();
+            SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
+
+            Supplier supplier = bc.GetSupplierById(request.Id);
+            response.Supplier = SupplierAdapter.SupplierToDto(supplier);
+
+            return response;
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]

@@ -73,6 +73,17 @@ namespace HsrOrderApp.UI.Mvc.Controllers
             return DisplayDetails(vm.Model);
         }
 
+        // POST: Supplier/Edit/5
+        [HttpPost]
+        public ActionResult Edit(SupplierViewModel vmChanged, string redirectButton)
+        {
+            var vm = GetViewModelFromTempData<SupplierViewModel>();
+
+            vm.ApplyFormAttributes(vmChanged.Model);
+
+            return StoreEntity(vm, redirectButton);
+        }
+
         // GET: Supplier/Delete/5
         public ActionResult Delete(int id)
         {

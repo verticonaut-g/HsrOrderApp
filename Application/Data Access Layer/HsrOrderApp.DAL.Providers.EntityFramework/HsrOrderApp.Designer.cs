@@ -1894,7 +1894,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             {
                 OnVersionChanging(value);
                 ReportPropertyChanging("Version");
-                _Version = StructuralObject.SetValidValue(value, true);
+                _Version = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Version");
                 OnVersionChanged();
             }
@@ -2181,7 +2181,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             {
                 OnVersionChanging(value);
                 ReportPropertyChanging("Version");
-                _Version = StructuralObject.SetValidValue(value, true);
+                _Version = StructuralObject.SetValidValue(value, false);
                 ReportPropertyChanged("Version");
                 OnVersionChanged();
             }

@@ -483,19 +483,18 @@ namespace HsrOrderApp.UI.PresentationLogic
         #region Supplier
         public SupplierDTO GetSupplierById(int id)
         {
-            //try
-            //{
-            //    GetProductRequest request = new GetProductRequest();
-            //    request.Id = id;
-            //    GetProductResponse response = Service.GetProductById(request);
-            //    return response.Product;
-            //}
-            //catch (Exception ex)
-            //{
-            //    if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
-            //    return new ProductDTO();
-            //}
-            return new SupplierDTO();
+            try
+            {
+                GetSupplierRequest request = new GetSupplierRequest();
+                request.Id = id;
+                GetSupplierResponse response = Service.GetSupplierById(request);
+                return response.Supplier;
+            }
+            catch (Exception ex)
+            {
+                if (ExceptionPolicy.HandleException(ex, "PL Policy")) throw;
+                return new SupplierDTO();
+            }
         }
 
         public IList<SupplierListDTO> GetAllSuppliers()

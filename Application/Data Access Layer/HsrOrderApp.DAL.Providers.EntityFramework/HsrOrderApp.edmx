@@ -93,7 +93,7 @@ warning 6005: The data type 'date' is currently not supported for the target Ent
           <Property Name="LastReceiptCode" Type="decimal" Precision="18" Scale="4" />
           <Property Name="MinOrderQty" Type="int" Nullable="false" />
           <Property Name="MaxOrderQty" Type="int" />
-          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="None" Nullable="false" />
         </EntityType>
         <EntityType Name="Suppliers">
           <Key>
@@ -106,7 +106,7 @@ warning 6005: The data type 'date' is currently not supported for the target Ent
           <Property Name="PreferredSupplierFlag" Type="bit" Nullable="false" />
           <Property Name="ActiveFlag" Type="bit" Nullable="false" />
           <Property Name="PurchasingWebServiceURL" Type="nvarchar" MaxLength="256" />
-          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="Computed" Nullable="false" />
+          <Property Name="Version" Type="timestamp" StoreGeneratedPattern="None" Nullable="false" />
         </EntityType>
         <EntityType Name="UserInRoles">
           <Key>
@@ -486,7 +486,7 @@ warning 6005: The data type 'date' is currently not supported for the target Ent
           <Property Name="PreferredSupplierFlag" Type="Boolean" Nullable="false" />
           <Property Name="ActiveFlag" Type="Boolean" Nullable="false" />
           <Property Name="PurchasingWebServiceURL" Type="String" MaxLength="256" FixedLength="false" Unicode="true" ConcurrencyMode="Fixed" />
-          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="None" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <NavigationProperty Name="SupplierProducts" Relationship="HsrOrderAppModel.FK_SupplierProduct_Supplier" FromRole="Supplier" ToRole="SupplierProduct" />
         </EntityType>
         <EntityType Name="SupplierProduct">
@@ -501,7 +501,7 @@ warning 6005: The data type 'date' is currently not supported for the target Ent
           <Property Name="LastReceiptCode" Type="Decimal" Precision="18" Scale="4" />
           <Property Name="MinOrderQty" Type="Int32" Nullable="false" />
           <Property Name="MaxOrderQty" Type="Int32" />
-          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="Computed" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
+          <Property Name="Version" Type="Binary" Nullable="false" MaxLength="8" FixedLength="true" a:StoreGeneratedPattern="None" xmlns:a="http://schemas.microsoft.com/ado/2009/02/edm/annotation" />
           <NavigationProperty Name="Product" Relationship="HsrOrderAppModel.FK_SupplierProducts_Products" FromRole="SupplierProduct" ToRole="Product" />
           <NavigationProperty Name="Supplier" Relationship="HsrOrderAppModel.FK_SupplierProduct_Supplier" FromRole="SupplierProduct" ToRole="Supplier" />
         </EntityType>

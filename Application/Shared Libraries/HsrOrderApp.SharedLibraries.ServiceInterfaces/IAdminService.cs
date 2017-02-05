@@ -142,7 +142,7 @@ namespace HsrOrderApp.SharedLibraries.ServiceInterfaces
 
         [OperationContract]
         [FaultContract(typeof(ServiceFault))]
-        GetSupplierResponse GetSupplierById();
+        GetSupplierResponse GetSupplierById(GetSupplierRequest request);
 
         [OperationContract]
         [FaultContract(typeof(ServiceFault))]

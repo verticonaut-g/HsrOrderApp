@@ -65,7 +65,7 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
         {
             try
             {
-                string setname = "Supplier";
+                string setname = "Suppliers";
                 Supplier dbSupplier;
 
                 bool isNew = false;
