@@ -20,7 +20,9 @@
     <DataTemplate DataType="{x:Type vm:Order.OrderItemDetailViewModel}">
         <vw:OrderDetailDetail  />
     </DataTemplate>
-
+    <DataTemplate  DataType="{x:Type vm:Supplier.SupplierDetailViewModel}">
+        <vw:SupplierDetail  />
+    </DataTemplate>
 
     <DataTemplate  DataType="{x:Type vm:Security.UserDetailViewModel}">
         <vw:UserDetail  />

@@ -5,6 +5,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using HsrOrderApp.UI.PresentationLogic;
+using HsrOrderApp.UI.WPF.ViewModels.Customer;
 
 namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 {
@@ -20,13 +22,13 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 
         protected override void New()
         {
-            //CustomerDTO newCustomer = new CustomerDTO();
-            //CustomerDetailViewModel detailModelView = new CustomerDetailViewModel(newCustomer, true);
-            //if (NavigationService.NavigateTo("Detail", detailModelView) == NavigationResult.Ok)
-            //{
-            //    Load();
-            //    SelectedItem = Items.SingleOrDefault(dto => dto.Id == newCustomer.Id);
-            //}
+            SupplierDTO newSupplier = new SupplierDTO();
+            SupplierDetailViewModel detailModelView = new SupplierDetailViewModel(newSupplier, true);
+            if (NavigationService.NavigateTo("Detail", detailModelView) == NavigationResult.Ok)
+            {
+                Load();
+                SelectedItem = Items.SingleOrDefault(dto => dto.Id == newSupplier.Id);
+            }
         }
 
         protected override void Delete()
@@ -37,13 +39,13 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 
         protected override void Edit()
         {
-            //CustomerDTO selectedDto = Service.GetCustomerById(SelectedItem.Id);
-            //CustomerDetailViewModel detailModelView = new CustomerDetailViewModel(selectedDto, false);
-            //if (NavigationService.NavigateTo("Detail", detailModelView) == NavigationResult.Ok)
-            //{
-            //    Load();
-            //    SelectedItem = Items.SingleOrDefault(dto => dto.Id == selectedDto.Id);
-            //}
+            SupplierDTO selectedDto = Service.GetSupplierById(SelectedItem.Id);
+            SupplierDetailViewModel detailModelView = new SupplierDetailViewModel(selectedDto, false);
+            if (NavigationService.NavigateTo("Detail", detailModelView) == NavigationResult.Ok)
+            {
+                Load();
+                SelectedItem = Items.SingleOrDefault(dto => dto.Id == selectedDto.Id);
+            }
         }
     }
 }

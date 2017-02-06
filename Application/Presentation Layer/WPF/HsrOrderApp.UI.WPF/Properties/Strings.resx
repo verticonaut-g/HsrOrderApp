@@ -189,14 +189,15 @@
   <data name="CustomerView_Name" xml:space="preserve">
     <value>Kundenname</value>
   </data>
-
+  <data name="SupplierDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Lieferant bearbeiten</value>
+  </data>
   <data name="SupplierView_DisplayName" xml:space="preserve">
     <value>Lieferantenverwaltung</value>
   </data>
   <data name="SupplierView_Description" xml:space="preserve">
     <value>Beschreibung</value>
   </data>
-
   <data name="SupplierView_Name" xml:space="preserve">
     <value>Lieferantenname</value>
   </data>
@@ -204,15 +205,35 @@
     <value>Lieferantennummer</value>
   </data>
   <data name="SupplierView_CreditRating" xml:space="preserve">
-    <value>Bewertung</value>
-  </data>
-  <data name="SupplierView_IsPreferedSupplier" xml:space="preserve">
     <value>Bonität</value>
   </data>
-  <data name="SupplierView_IsActive" xml:space="preserve">
-    <value>Aktiv</value>
+  <data name="SupplierView_IsPreferedSupplier" xml:space="preserve">
+    <value>Bevorzugter Lieferant</value>
   </data>
-  
+  <data name="SupplierView_IsActive" xml:space="preserve">
+    <value>Ist aktiv</value>
+  </data>
+  <data name="SupplierDetailView_Title" xml:space="preserve">
+    <value>Lieferant</value>
+  </data>
+  <data name="SupplierDetailView_Name" xml:space="preserve">
+    <value>Lieferantenname</value>
+  </data>
+  <data name="SupplierDetailView_AccountNumber" xml:space="preserve">
+    <value>Lieferantennummer</value>
+  </data>
+  <data name="SupplierDetailView_CreditRating" xml:space="preserve">
+    <value>Bonität</value>
+  </data>
+  <data name="SupplierDetailView_PreferedSupplier" xml:space="preserve">
+    <value>Bevorzugter Lieferant</value>
+  </data>
+    <data name="SupplierDetailView_ActiveFlag" xml:space="preserve">
+    <value>Activ</value>
+  </data>
+    <data name="SupplierDetailView_PurchasingWebUrl" xml:space="preserve">
+    <value>URL</value>
+  </data>
   <data name="CustomerView_OpenOrders" xml:space="preserve">
     <value>Anzahl offene Bestellungen</value>
   </data>

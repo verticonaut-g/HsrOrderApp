@@ -61,11 +61,12 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
             }
         }
 
+
         public int SaveSupplier(BL.DomainModel.Supplier supplier)
         {
             try
             {
-                string setname = "Supplier";
+                string setname = "Suppliers";
                 Supplier dbSupplier;
 
                 bool isNew = false;

@@ -828,6 +828,78 @@ namespace HsrOrderApp.UI.WPF.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Lieferantennummer.
         /// </summary>
+        public static string SupplierDetailView_AccountNumber {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_AccountNumber", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Activ.
+        /// </summary>
+        public static string SupplierDetailView_ActiveFlag {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_ActiveFlag", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bonität.
+        /// </summary>
+        public static string SupplierDetailView_CreditRating {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_CreditRating", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferantenname.
+        /// </summary>
+        public static string SupplierDetailView_Name {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_Name", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bevorzugter Lieferant.
+        /// </summary>
+        public static string SupplierDetailView_PreferedSupplier {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_PreferedSupplier", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to URL.
+        /// </summary>
+        public static string SupplierDetailView_PurchasingWebUrl {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_PurchasingWebUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant.
+        /// </summary>
+        public static string SupplierDetailView_Title {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferant bearbeiten.
+        /// </summary>
+        public static string SupplierDetailViewModel_DisplayName {
+            get {
+                return ResourceManager.GetString("SupplierDetailViewModel_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferantennummer.
+        /// </summary>
         public static string SupplierView_AccountNumber {
             get {
                 return ResourceManager.GetString("SupplierView_AccountNumber", resourceCulture);
@@ -835,7 +907,7 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bewertung.
+        ///   Looks up a localized string similar to Bonität.
         /// </summary>
         public static string SupplierView_CreditRating {
             get {
@@ -862,7 +934,7 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Aktiv.
+        ///   Looks up a localized string similar to Ist aktiv.
         /// </summary>
         public static string SupplierView_IsActive {
             get {
@@ -871,7 +943,7 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bonität.
+        ///   Looks up a localized string similar to Bevorzugter Lieferant.
         /// </summary>
         public static string SupplierView_IsPreferedSupplier {
             get {
