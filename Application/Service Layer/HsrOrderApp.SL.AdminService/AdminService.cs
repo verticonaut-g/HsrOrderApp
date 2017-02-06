@@ -303,18 +303,10 @@ namespace HsrOrderApp.SL.AdminService
             GetSupplierResponse response = new GetSupplierResponse();
             SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
 
-<<<<<<< HEAD
-            Supplier customer = bc.GetSupplierById(request.Id);
-            response.Supplier = SupplierAdapter.SupplierToDto(customer);
-
-            return response;
-
-=======
             Supplier supplier = bc.GetSupplierById(request.Id);
             response.Supplier = SupplierAdapter.SupplierToDto(supplier);
 
             return response;
->>>>>>> ff898e7cddfa49273386ed7b1eae720204e75a5e
         }
 
         [PrincipalPermission(SecurityAction.Demand, Role = Roles.STAFF)]
