@@ -13,10 +13,14 @@ namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
     {
         [DataMember]
         [RangeValidator(0, RangeBoundaryType.Exclusive, int.MaxValue, RangeBoundaryType.Ignore)]
+<<<<<<< HEAD
         public override int Id
         {
             get { return base.Id; }
             set { base.Id = value; }
         }
+=======
+        public override int Id { get { return base.Id; } set { base.Id = value; } }
+>>>>>>> ff898e7cddfa49273386ed7b1eae720204e75a5e
     }
 }
