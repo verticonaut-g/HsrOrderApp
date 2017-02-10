@@ -36,7 +36,7 @@ namespace HsrOrderApp.BL.BusinessComponents
         }
 
 
-        public IQueryable<Supplier> GetSuppliersByCriteria(SupplierSearchType searchType, string name)
+        public IQueryable<Supplier> GetSuppliersByCriteria(SupplierSearchType searchType, string name, int productId)
         {
             IQueryable<Supplier> suppliers = new List<Supplier>().AsQueryable();
 
@@ -48,6 +48,10 @@ namespace HsrOrderApp.BL.BusinessComponents
                 case SupplierSearchType.ByName:
                     suppliers = rep.GetAll().Where(cu => cu.Name == name);
                     break;
+                case SupplierSearchType.ByProduct:
+                    suppliers = rep.GetAll().Where(su => su.SupplierProduct.Any(c => c.Product.ProductId == productId));
+                    break;
+
             }
             return suppliers;
         }

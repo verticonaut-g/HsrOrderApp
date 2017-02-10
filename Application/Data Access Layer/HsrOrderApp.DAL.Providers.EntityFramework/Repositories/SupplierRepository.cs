@@ -48,9 +48,9 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework.Repositories
         {
             try
             {
-                var suppliers = from c in this.db.Suppliers.AsEnumerable()
-                               where c.SupplierId == id
-                               select SupplierAdapter.AdaptSupplier(c);
+                var suppliers = from c in this.db.Suppliers.Include("SupplierProducts.Product").AsEnumerable()
+                                where c.SupplierId == id
+                                select SupplierAdapter.AdaptSupplier(c);
 
                 return suppliers.First();
             }

@@ -6,30 +6,65 @@ using System.Text;
 using HsrOrderApp.SharedLibraries.DTO.Base;
 using HsrOrderApp.SharedLibraries.SharedEnums;
 using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+using Microsoft.Practices.EnterpriseLibrary.Validation;
 
 namespace HsrOrderApp.SharedLibraries.DTO
 {
-    class SupplierProductDTO : DTOParentObject
+    public class SupplierProductDTO : DTOVersionObject
     {
         private int _averageLeadTime;
+        private decimal? _lastReceiptCost;
+        private DateTime? _lastReceiptDate;
+        private int _maxOrderQuantity;
+        private int _minOrderQuantity;
+        private int _productId;
+        private string _productName;
         private decimal _standardPrice;
-        private decimal _lastReceiptCost;
-        private DateTime _lastReceiptDate;
-        private int _minOrderQty;
-        private int _maxOrderQty;
 
         public SupplierProductDTO()
         {
-            //this.Name = string.Empty;
-            //this.AccountNumber = string.Empty;
-            //this.CreditRating = default(int);
-            //this.PreferredSupplierFlag = true;
-            //this.ActiveFlag = true;
-            //this.PurchasingWebServiceURL = string.Empty;
-
-    }
+            this.Id = default(int);
+            this.ProductName = string.Empty;
+            this.AverageLeadTime = default(int);
+            this.StandardPrice = default(decimal);
+            this.LastReceiptDate = null;
+            this.LastReceiptCost = null;
+            this.MinOrderQuantity = default(int);
+            this.MaxOrderQuantity = 999999;
+        }
 
         [DataMember]
+        [NotNullValidator]
+        public int ProductId
+        {
+            get { return this._productId; }
+            set
+            {
+                if (value != _productId)
+                {
+                    this._productId = value;
+                    OnPropertyChanged(() => Id);
+                }
+            }
+        }
+
+        [DataMember]
+        [StringLengthValidator(1, 50)]
+        public string ProductName
+        {
+            get { return _productName; }
+            set
+            {
+                if (value != _productName)
+                {
+                    this._productName = value;
+                    OnPropertyChanged(() => ProductName);
+                }
+            }
+        }
+
+        [DataMember]
+        [RangeValidator(0, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]
         public int AverageLeadTime
         {
             get { return _averageLeadTime; }
@@ -44,6 +79,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
         }
 
         [DataMember]
+        [RangeValidator(typeof(decimal), "0.0", RangeBoundaryType.Inclusive, "0", RangeBoundaryType.Ignore)]
         public decimal StandardPrice
         {
             get { return _standardPrice; }
@@ -52,14 +88,16 @@ namespace HsrOrderApp.SharedLibraries.DTO
                 if (value != _standardPrice)
                 {
                     this._standardPrice = value;
-                    OnPropertyChanged(() => StandardPrice);
+                    OnPropertyChanged(() => _standardPrice);
                 }
             }
         }
 
         [DataMember]
-        [StringLengthValidator(1, 256)]
-        public decimal LastReceiptCost
+        [ValidatorComposition(CompositionType.Or)]
+        [NotNullValidator(Negated = true)]
+        [RangeValidator(typeof(decimal), "0.0", RangeBoundaryType.Inclusive, "0", RangeBoundaryType.Ignore)]
+        public decimal? LastReceiptCost
         {
             get { return _lastReceiptCost; }
             set
@@ -73,7 +111,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
         }
 
         [DataMember]
-        public DateTime LastReceiptDate
+        public DateTime? LastReceiptDate
         {
             get { return _lastReceiptDate; }
             set
@@ -87,29 +125,31 @@ namespace HsrOrderApp.SharedLibraries.DTO
         }
 
         [DataMember]
-        public int MinOrderQty
+        [RangeValidator(0, RangeBoundaryType.Inclusive, int.MaxValue, RangeBoundaryType.Ignore)]
+        public int MinOrderQuantity
         {
-            get { return _minOrderQty; }
+            get { return _minOrderQuantity; }
             set
             {
-                if (value != _minOrderQty)
+                if (value != _minOrderQuantity)
                 {
-                    this._minOrderQty = value;
-                    OnPropertyChanged(() => MinOrderQty);
+                    this._minOrderQuantity = value;
+                    OnPropertyChanged(() => MinOrderQuantity);
                 }
             }
         }
 
         [DataMember]
-        public int MaxOrderQty
+        [RangeValidator(0, RangeBoundaryType.Exclusive, int.MaxValue, RangeBoundaryType.Ignore)]
+        public int MaxOrderQuantity
         {
-            get { return _maxOrderQty; }
+            get { return _maxOrderQuantity; }
             set
             {
-                if (value != _maxOrderQty)
+                if (value != _maxOrderQuantity)
                 {
-                    this._maxOrderQty = value;
-                    OnPropertyChanged(() => MaxOrderQty);
+                    this._maxOrderQuantity = value;
+                    OnPropertyChanged(() => MaxOrderQuantity);
                 }
             }
         }

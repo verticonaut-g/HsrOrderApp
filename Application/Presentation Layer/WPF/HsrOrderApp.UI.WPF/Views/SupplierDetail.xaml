@@ -6,7 +6,7 @@
              xmlns:local="clr-namespace:HsrOrderApp.UI.WPF.Views"
              xmlns:Properties="clr-namespace:HsrOrderApp.UI.WPF.Properties"
              mc:Ignorable="d" 
-             d:DesignHeight="300" d:DesignWidth="300">
+             >
 
     <DockPanel>
         <StackPanel DockPanel.Dock="Top" Orientation="Horizontal" Height="50">
@@ -22,23 +22,58 @@
                 <RowDefinition />
                 <RowDefinition />
                 <RowDefinition />
+
+                <RowDefinition />
+                <RowDefinition />
+                <RowDefinition />
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition  />
                 <ColumnDefinition  />
             </Grid.ColumnDefinitions>
-            <Label Content="{x:Static Properties:Strings.SupplierDetailView_Name}"/>
+            <Label Grid.Row="0" Content="{x:Static Properties:Strings.SupplierDetailView_Name}"/>
             <Label Grid.Row="1" Content="{x:Static Properties:Strings.SupplierDetailView_AccountNumber}"/>
             <Label Grid.Row="2" Content="{x:Static Properties:Strings.SupplierDetailView_CreditRating}"/>
             <Label Grid.Row="3" Content="{x:Static Properties:Strings.SupplierDetailView_PreferedSupplier}"/>
             <Label Grid.Row="4" Content="{x:Static Properties:Strings.SupplierDetailView_ActiveFlag}"/>
             <Label Grid.Row="5" Content="{x:Static Properties:Strings.SupplierDetailView_PurchasingWebUrl}"/>
-            <TextBox Grid.Column="1" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
+            <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Model.Name, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
             <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Model.AccountNumber, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
             <ComboBox Grid.Column="1" Grid.Row="2" ItemsSource="{Binding CreditRatings}" DisplayMemberPath="Name" SelectedValuePath="Value" SelectedValue="{Binding Model.CreditRating, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}"/>
             <CheckBox Grid.Column="1" Grid.Row="3" IsChecked="{Binding Model.PreferredSupplierFlag, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" VerticalAlignment="Center"/>
             <CheckBox Grid.Column="1" Grid.Row="4" IsChecked="{Binding Path=Model.ActiveFlag, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" VerticalAlignment="Center"/>
             <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Model.PurchasingWebServiceURL, UpdateSourceTrigger=PropertyChanged, ValidatesOnDataErrors=True}" ></TextBox>
+
+            <StackPanel Grid.ColumnSpan="2" Grid.Row="6" Height="50" Orientation="Horizontal" Margin="0 20 0 0" >
+                <TextBlock Height="50" Padding="15" Text="{x:Static Properties:Strings.SupplierDetailView_SubtitleConditions}" Style="{StaticResource ViewTitle}"/>
+            </StackPanel>
+
+            <Menu Grid.ColumnSpan="2" Grid.Row="7" Style="{StaticResource MenuStyle}" ItemsSource="{Binding ConditionListViewModel.Commands}" Height="25" />
+            <ListView Grid.ColumnSpan="2" Grid.Row="8" Name="listView1" ItemsSource="{Binding ConditionListViewModel.Items}" SelectedItem="{Binding ConditionListViewModel.SelectedItem, Mode=TwoWay}" MinHeight="100">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_Product}"  Width="160" DisplayMemberBinding="{ Binding ProductName}"/>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_AverageLeadTime}"  Width="160" DisplayMemberBinding="{ Binding AverageLeadTime}"/>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_StandardPrice}" Width="160">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding StandardPrice, Converter={StaticResource decimalConv}}"  TextAlignment="Right"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_LastReceiptDate}" Width="160" DisplayMemberBinding="{ Binding LastReceiptDate, Converter={StaticResource dateTimeConv}}"/>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_LastReceiptCost}" Width="160">
+                            <GridViewColumn.CellTemplate >
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding LastReceiptCost, Converter={StaticResource decimalConv}}"  TextAlignment="Right"/>
+                                </DataTemplate>
+                            </GridViewColumn.CellTemplate>
+                        </GridViewColumn>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_MinOrderQuantity}"  Width="160" DisplayMemberBinding="{ Binding MinOrderQuantity}"/>
+                        <GridViewColumn Header="{x:Static Properties:Strings.ConditionDetailView_MaxOrderQuantity}"  Width="160" DisplayMemberBinding="{ Binding MaxOrderQuantity}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
         </Grid>
     </DockPanel>
 </UserControl>

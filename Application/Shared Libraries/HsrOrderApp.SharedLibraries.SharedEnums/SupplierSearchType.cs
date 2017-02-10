@@ -3,6 +3,7 @@
     public enum SupplierSearchType
     {
         ByName,
-        None
+        None,
+        ByProduct
     }
 }

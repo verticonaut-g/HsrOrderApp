@@ -499,16 +499,17 @@ namespace HsrOrderApp.UI.PresentationLogic
 
         public IList<SupplierListDTO> GetAllSuppliers()
         {
-           return GetSuppliers(SupplierSearchType.None, default(string));
+           return GetSuppliers(SupplierSearchType.None, default(string), default(int));
         }
 
-        private IList<SupplierListDTO> GetSuppliers(SupplierSearchType searchType, string name)
+        private IList<SupplierListDTO> GetSuppliers(SupplierSearchType searchType, string name, int ProductId)
         {
             try
             {
                 GetSuppliersRequest request = new GetSuppliersRequest();
                 request.SearchType = searchType;
                 request.SupplierName = name;
+                request.Id = ProductId;
                 GetSuppliersResponse response = Service.GetSuppliersByCriteria(request);
                 return response.Suppliers;
             }

@@ -218,6 +218,22 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
             }
         }
         private ObjectSet<SupplierProduct> _SupplierProducts;
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectSet<sysdiagram> sysdiagrams
+        {
+            get
+            {
+                if ((_sysdiagrams == null))
+                {
+                    _sysdiagrams = base.CreateObjectSet<sysdiagram>("sysdiagrams");
+                }
+                return _sysdiagrams;
+            }
+        }
+        private ObjectSet<sysdiagram> _sysdiagrams;
 
         #endregion
 
@@ -293,6 +309,804 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         public void AddToSupplierProducts(SupplierProduct supplierProduct)
         {
             base.AddObject("SupplierProducts", supplierProduct);
+        }
+    
+        /// <summary>
+        /// Deprecated Method for adding a new object to the sysdiagrams EntitySet. Consider using the .Add method of the associated ObjectSet&lt;T&gt; property instead.
+        /// </summary>
+        public void AddTosysdiagrams(sysdiagram sysdiagram)
+        {
+            base.AddObject("sysdiagrams", sysdiagram);
+        }
+
+        #endregion
+
+        #region Function Imports
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int DeleteAddressCmd(Nullable<global::System.Int32> addressId, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("DeleteAddressCmd", addressIdParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int DeletePersonCmd(Nullable<global::System.Int32> personID, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("DeletePersonCmd", personIDParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="customerId">No Metadata Documentation available.</param>
+        /// <param name="street">No Metadata Documentation available.</param>
+        /// <param name="city">No Metadata Documentation available.</param>
+        /// <param name="postalCode">No Metadata Documentation available.</param>
+        /// <param name="phone">No Metadata Documentation available.</param>
+        public int InsertAddressCmd(Nullable<global::System.Int32> customerId, global::System.String street, global::System.String city, global::System.String postalCode, global::System.String phone)
+        {
+            ObjectParameter customerIdParameter;
+            if (customerId.HasValue)
+            {
+                customerIdParameter = new ObjectParameter("CustomerId", customerId);
+            }
+            else
+            {
+                customerIdParameter = new ObjectParameter("CustomerId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter streetParameter;
+            if (street != null)
+            {
+                streetParameter = new ObjectParameter("Street", street);
+            }
+            else
+            {
+                streetParameter = new ObjectParameter("Street", typeof(global::System.String));
+            }
+    
+            ObjectParameter cityParameter;
+            if (city != null)
+            {
+                cityParameter = new ObjectParameter("City", city);
+            }
+            else
+            {
+                cityParameter = new ObjectParameter("City", typeof(global::System.String));
+            }
+    
+            ObjectParameter postalCodeParameter;
+            if (postalCode != null)
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", postalCode);
+            }
+            else
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", typeof(global::System.String));
+            }
+    
+            ObjectParameter phoneParameter;
+            if (phone != null)
+            {
+                phoneParameter = new ObjectParameter("Phone", phone);
+            }
+            else
+            {
+                phoneParameter = new ObjectParameter("Phone", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("InsertAddressCmd", customerIdParameter, streetParameter, cityParameter, postalCodeParameter, phoneParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="orderDate">No Metadata Documentation available.</param>
+        /// <param name="shippedDate">No Metadata Documentation available.</param>
+        public int InsertOrderCmd(Nullable<global::System.Int32> personID, Nullable<global::System.DateTime> orderDate, Nullable<global::System.DateTime> shippedDate)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter orderDateParameter;
+            if (orderDate.HasValue)
+            {
+                orderDateParameter = new ObjectParameter("OrderDate", orderDate);
+            }
+            else
+            {
+                orderDateParameter = new ObjectParameter("OrderDate", typeof(global::System.DateTime));
+            }
+    
+            ObjectParameter shippedDateParameter;
+            if (shippedDate.HasValue)
+            {
+                shippedDateParameter = new ObjectParameter("ShippedDate", shippedDate);
+            }
+            else
+            {
+                shippedDateParameter = new ObjectParameter("ShippedDate", typeof(global::System.DateTime));
+            }
+    
+            return base.ExecuteFunction("InsertOrderCmd", personIDParameter, orderDateParameter, shippedDateParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="orderID">No Metadata Documentation available.</param>
+        /// <param name="productID">No Metadata Documentation available.</param>
+        /// <param name="unitPrice">No Metadata Documentation available.</param>
+        /// <param name="quantity">No Metadata Documentation available.</param>
+        public int InsertOrderDetailCmd(Nullable<global::System.Int32> orderID, Nullable<global::System.Int32> productID, Nullable<global::System.Double> unitPrice, Nullable<global::System.Int32> quantity)
+        {
+            ObjectParameter orderIDParameter;
+            if (orderID.HasValue)
+            {
+                orderIDParameter = new ObjectParameter("OrderID", orderID);
+            }
+            else
+            {
+                orderIDParameter = new ObjectParameter("OrderID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter productIDParameter;
+            if (productID.HasValue)
+            {
+                productIDParameter = new ObjectParameter("ProductID", productID);
+            }
+            else
+            {
+                productIDParameter = new ObjectParameter("ProductID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter unitPriceParameter;
+            if (unitPrice.HasValue)
+            {
+                unitPriceParameter = new ObjectParameter("UnitPrice", unitPrice);
+            }
+            else
+            {
+                unitPriceParameter = new ObjectParameter("UnitPrice", typeof(global::System.Double));
+            }
+    
+            ObjectParameter quantityParameter;
+            if (quantity.HasValue)
+            {
+                quantityParameter = new ObjectParameter("Quantity", quantity);
+            }
+            else
+            {
+                quantityParameter = new ObjectParameter("Quantity", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("InsertOrderDetailCmd", orderIDParameter, productIDParameter, unitPriceParameter, quantityParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        public int InsertPersonCmd(global::System.String name, global::System.String password)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("InsertPersonCmd", nameParameter, passwordParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        public int SelectAddressCmd(Nullable<global::System.Int32> addressId)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectAddressCmd", addressIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personId">No Metadata Documentation available.</param>
+        public int SelectAddressesCmd(Nullable<global::System.Int32> personId)
+        {
+            ObjectParameter personIdParameter;
+            if (personId.HasValue)
+            {
+                personIdParameter = new ObjectParameter("PersonId", personId);
+            }
+            else
+            {
+                personIdParameter = new ObjectParameter("PersonId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectAddressesCmd", personIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public ObjectResult<global::System.String> SelectCategoriesCmd()
+        {
+            return base.ExecuteFunction<global::System.String>("SelectCategoriesCmd");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        public int SelectPersonByNameCmd(global::System.String name)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectPersonByNameCmd", nameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personId">No Metadata Documentation available.</param>
+        public int SelectPersonCmd(Nullable<global::System.Int32> personId)
+        {
+            ObjectParameter personIdParameter;
+            if (personId.HasValue)
+            {
+                personIdParameter = new ObjectParameter("PersonId", personId);
+            }
+            else
+            {
+                personIdParameter = new ObjectParameter("PersonId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectPersonCmd", personIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="category">No Metadata Documentation available.</param>
+        public int SelectProductByCategoryCmd(global::System.String category)
+        {
+            ObjectParameter categoryParameter;
+            if (category != null)
+            {
+                categoryParameter = new ObjectParameter("Category", category);
+            }
+            else
+            {
+                categoryParameter = new ObjectParameter("Category", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectProductByCategoryCmd", categoryParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="productName">No Metadata Documentation available.</param>
+        public int SelectProductByNameCmd(global::System.String productName)
+        {
+            ObjectParameter productNameParameter;
+            if (productName != null)
+            {
+                productNameParameter = new ObjectParameter("ProductName", productName);
+            }
+            else
+            {
+                productNameParameter = new ObjectParameter("ProductName", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("SelectProductByNameCmd", productNameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="productId">No Metadata Documentation available.</param>
+        public int SelectProductCmd(Nullable<global::System.Int32> productId)
+        {
+            ObjectParameter productIdParameter;
+            if (productId.HasValue)
+            {
+                productIdParameter = new ObjectParameter("ProductId", productId);
+            }
+            else
+            {
+                productIdParameter = new ObjectParameter("ProductId", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("SelectProductCmd", productIdParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="version">No Metadata Documentation available.</param>
+        /// <param name="definition">No Metadata Documentation available.</param>
+        public int sp_alterdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter versionParameter;
+            if (version.HasValue)
+            {
+                versionParameter = new ObjectParameter("version", version);
+            }
+            else
+            {
+                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter definitionParameter;
+            if (definition != null)
+            {
+                definitionParameter = new ObjectParameter("definition", definition);
+            }
+            else
+            {
+                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("sp_alterdiagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="version">No Metadata Documentation available.</param>
+        /// <param name="definition">No Metadata Documentation available.</param>
+        public int sp_creatediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, Nullable<global::System.Int32> version, global::System.Byte[] definition)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter versionParameter;
+            if (version.HasValue)
+            {
+                versionParameter = new ObjectParameter("version", version);
+            }
+            else
+            {
+                versionParameter = new ObjectParameter("version", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter definitionParameter;
+            if (definition != null)
+            {
+                definitionParameter = new ObjectParameter("definition", definition);
+            }
+            else
+            {
+                definitionParameter = new ObjectParameter("definition", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("sp_creatediagram", diagramnameParameter, owner_idParameter, versionParameter, definitionParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public int sp_dropdiagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("sp_dropdiagram", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public int sp_helpdiagramdefinition(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("sp_helpdiagramdefinition", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        public int sp_helpdiagrams(global::System.String diagramname, Nullable<global::System.Int32> owner_id)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            return base.ExecuteFunction("sp_helpdiagrams", diagramnameParameter, owner_idParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="diagramname">No Metadata Documentation available.</param>
+        /// <param name="owner_id">No Metadata Documentation available.</param>
+        /// <param name="new_diagramname">No Metadata Documentation available.</param>
+        public int sp_renamediagram(global::System.String diagramname, Nullable<global::System.Int32> owner_id, global::System.String new_diagramname)
+        {
+            ObjectParameter diagramnameParameter;
+            if (diagramname != null)
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", diagramname);
+            }
+            else
+            {
+                diagramnameParameter = new ObjectParameter("diagramname", typeof(global::System.String));
+            }
+    
+            ObjectParameter owner_idParameter;
+            if (owner_id.HasValue)
+            {
+                owner_idParameter = new ObjectParameter("owner_id", owner_id);
+            }
+            else
+            {
+                owner_idParameter = new ObjectParameter("owner_id", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter new_diagramnameParameter;
+            if (new_diagramname != null)
+            {
+                new_diagramnameParameter = new ObjectParameter("new_diagramname", new_diagramname);
+            }
+            else
+            {
+                new_diagramnameParameter = new ObjectParameter("new_diagramname", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("sp_renamediagram", diagramnameParameter, owner_idParameter, new_diagramnameParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        public int sp_upgraddiagrams()
+        {
+            return base.ExecuteFunction("sp_upgraddiagrams");
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="addressId">No Metadata Documentation available.</param>
+        /// <param name="street">No Metadata Documentation available.</param>
+        /// <param name="city">No Metadata Documentation available.</param>
+        /// <param name="postalCode">No Metadata Documentation available.</param>
+        /// <param name="phone">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int UpdateAddressCmd(Nullable<global::System.Int32> addressId, global::System.String street, global::System.String city, global::System.String postalCode, global::System.String phone, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter addressIdParameter;
+            if (addressId.HasValue)
+            {
+                addressIdParameter = new ObjectParameter("AddressId", addressId);
+            }
+            else
+            {
+                addressIdParameter = new ObjectParameter("AddressId", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter streetParameter;
+            if (street != null)
+            {
+                streetParameter = new ObjectParameter("Street", street);
+            }
+            else
+            {
+                streetParameter = new ObjectParameter("Street", typeof(global::System.String));
+            }
+    
+            ObjectParameter cityParameter;
+            if (city != null)
+            {
+                cityParameter = new ObjectParameter("City", city);
+            }
+            else
+            {
+                cityParameter = new ObjectParameter("City", typeof(global::System.String));
+            }
+    
+            ObjectParameter postalCodeParameter;
+            if (postalCode != null)
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", postalCode);
+            }
+            else
+            {
+                postalCodeParameter = new ObjectParameter("PostalCode", typeof(global::System.String));
+            }
+    
+            ObjectParameter phoneParameter;
+            if (phone != null)
+            {
+                phoneParameter = new ObjectParameter("Phone", phone);
+            }
+            else
+            {
+                phoneParameter = new ObjectParameter("Phone", typeof(global::System.String));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("UpdateAddressCmd", addressIdParameter, streetParameter, cityParameter, postalCodeParameter, phoneParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="personID">No Metadata Documentation available.</param>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        /// <param name="chTimeStamp">No Metadata Documentation available.</param>
+        public int UpdatePersonCmd(Nullable<global::System.Int32> personID, global::System.String name, global::System.String password, global::System.Byte[] chTimeStamp)
+        {
+            ObjectParameter personIDParameter;
+            if (personID.HasValue)
+            {
+                personIDParameter = new ObjectParameter("PersonID", personID);
+            }
+            else
+            {
+                personIDParameter = new ObjectParameter("PersonID", typeof(global::System.Int32));
+            }
+    
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            ObjectParameter chTimeStampParameter;
+            if (chTimeStamp != null)
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", chTimeStamp);
+            }
+            else
+            {
+                chTimeStampParameter = new ObjectParameter("chTimeStamp", typeof(global::System.Byte[]));
+            }
+    
+            return base.ExecuteFunction("UpdatePersonCmd", personIDParameter, nameParameter, passwordParameter, chTimeStampParameter);
+        }
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        /// <param name="name">No Metadata Documentation available.</param>
+        /// <param name="password">No Metadata Documentation available.</param>
+        public int VerifyPasswordCmd(global::System.String name, global::System.String password)
+        {
+            ObjectParameter nameParameter;
+            if (name != null)
+            {
+                nameParameter = new ObjectParameter("Name", name);
+            }
+            else
+            {
+                nameParameter = new ObjectParameter("Name", typeof(global::System.String));
+            }
+    
+            ObjectParameter passwordParameter;
+            if (password != null)
+            {
+                passwordParameter = new ObjectParameter("Password", password);
+            }
+            else
+            {
+                passwordParameter = new ObjectParameter("Password", typeof(global::System.String));
+            }
+    
+            return base.ExecuteFunction("VerifyPasswordCmd", nameParameter, passwordParameter);
         }
 
         #endregion
@@ -2189,6 +3003,30 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
         private global::System.Byte[] _Version;
         partial void OnVersionChanging(global::System.Byte[] value);
         partial void OnVersionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.DateTime> LastReceiptDate
+        {
+            get
+            {
+                return _LastReceiptDate;
+            }
+            set
+            {
+                OnLastReceiptDateChanging(value);
+                ReportPropertyChanging("LastReceiptDate");
+                _LastReceiptDate = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("LastReceiptDate");
+                OnLastReceiptDateChanged();
+            }
+        }
+        private Nullable<global::System.DateTime> _LastReceiptDate;
+        partial void OnLastReceiptDateChanging(Nullable<global::System.DateTime> value);
+        partial void OnLastReceiptDateChanged();
 
         #endregion
 
@@ -2273,6 +3111,163 @@ namespace HsrOrderApp.DAL.Providers.EntityFramework
 
         #endregion
 
+    }
+    
+    /// <summary>
+    /// No Metadata Documentation available.
+    /// </summary>
+    [EdmEntityTypeAttribute(NamespaceName="HsrOrderAppModel", Name="sysdiagram")]
+    [Serializable()]
+    [DataContractAttribute(IsReference=true)]
+    public partial class sysdiagram : EntityObject
+    {
+        #region Factory Method
+    
+        /// <summary>
+        /// Create a new sysdiagram object.
+        /// </summary>
+        /// <param name="name">Initial value of the name property.</param>
+        /// <param name="principal_id">Initial value of the principal_id property.</param>
+        /// <param name="diagram_id">Initial value of the diagram_id property.</param>
+        public static sysdiagram Createsysdiagram(global::System.String name, global::System.Int32 principal_id, global::System.Int32 diagram_id)
+        {
+            sysdiagram sysdiagram = new sysdiagram();
+            sysdiagram.name = name;
+            sysdiagram.principal_id = principal_id;
+            sysdiagram.diagram_id = diagram_id;
+            return sysdiagram;
+        }
+
+        #endregion
+
+        #region Primitive Properties
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.String name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                OnnameChanging(value);
+                ReportPropertyChanging("name");
+                _name = StructuralObject.SetValidValue(value, false);
+                ReportPropertyChanged("name");
+                OnnameChanged();
+            }
+        }
+        private global::System.String _name;
+        partial void OnnameChanging(global::System.String value);
+        partial void OnnameChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 principal_id
+        {
+            get
+            {
+                return _principal_id;
+            }
+            set
+            {
+                Onprincipal_idChanging(value);
+                ReportPropertyChanging("principal_id");
+                _principal_id = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("principal_id");
+                Onprincipal_idChanged();
+            }
+        }
+        private global::System.Int32 _principal_id;
+        partial void Onprincipal_idChanging(global::System.Int32 value);
+        partial void Onprincipal_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=true, IsNullable=false)]
+        [DataMemberAttribute()]
+        public global::System.Int32 diagram_id
+        {
+            get
+            {
+                return _diagram_id;
+            }
+            set
+            {
+                if (_diagram_id != value)
+                {
+                    Ondiagram_idChanging(value);
+                    ReportPropertyChanging("diagram_id");
+                    _diagram_id = StructuralObject.SetValidValue(value);
+                    ReportPropertyChanged("diagram_id");
+                    Ondiagram_idChanged();
+                }
+            }
+        }
+        private global::System.Int32 _diagram_id;
+        partial void Ondiagram_idChanging(global::System.Int32 value);
+        partial void Ondiagram_idChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public Nullable<global::System.Int32> version
+        {
+            get
+            {
+                return _version;
+            }
+            set
+            {
+                OnversionChanging(value);
+                ReportPropertyChanging("version");
+                _version = StructuralObject.SetValidValue(value);
+                ReportPropertyChanged("version");
+                OnversionChanged();
+            }
+        }
+        private Nullable<global::System.Int32> _version;
+        partial void OnversionChanging(Nullable<global::System.Int32> value);
+        partial void OnversionChanged();
+    
+        /// <summary>
+        /// No Metadata Documentation available.
+        /// </summary>
+        [EdmScalarPropertyAttribute(EntityKeyProperty=false, IsNullable=true)]
+        [DataMemberAttribute()]
+        public global::System.Byte[] definition
+        {
+            get
+            {
+                return StructuralObject.GetValidValue(_definition);
+            }
+            set
+            {
+                OndefinitionChanging(value);
+                ReportPropertyChanging("definition");
+                _definition = StructuralObject.SetValidValue(value, true);
+                ReportPropertyChanged("definition");
+                OndefinitionChanged();
+            }
+        }
+        private global::System.Byte[] _definition;
+        partial void OndefinitionChanging(global::System.Byte[] value);
+        partial void OndefinitionChanged();
+
+        #endregion
+
+    
     }
     
     /// <summary>

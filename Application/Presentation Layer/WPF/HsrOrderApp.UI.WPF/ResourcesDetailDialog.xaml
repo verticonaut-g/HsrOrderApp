@@ -23,6 +23,9 @@
     <DataTemplate  DataType="{x:Type vm:Supplier.SupplierDetailViewModel}">
         <vw:SupplierDetail  />
     </DataTemplate>
+    <DataTemplate DataType="{x:Type vm:Supplier.ConditionDetailViewModel}">
+        <vw:ConditionDetail />
+    </DataTemplate>
 
     <DataTemplate  DataType="{x:Type vm:Security.UserDetailViewModel}">
         <vw:UserDetail  />

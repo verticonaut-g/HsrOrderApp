@@ -13,6 +13,8 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 {
     public class SupplierDetailViewModel : DetailViewModelBase<SupplierDTO>
     {
+        private ConditionViewModel _conditionListViewModel;
+
         public SupplierDetailViewModel(SupplierDTO customer, bool isNew) : base(customer, isNew)
         {
             this.DisplayName = Strings.SupplierDetailViewModel_DisplayName;
@@ -22,6 +24,19 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
         {
             Service.StoreSupplier(Model);
             SaveCommandExecuted();
+        }
+
+        public ConditionViewModel ConditionListViewModel
+        {
+            get
+            {
+                if (this._conditionListViewModel == null)
+                {
+                    this._conditionListViewModel = new ConditionViewModel(this.Model);
+                    this._conditionListViewModel.LoadCommand.Command.Execute(null);
+                }
+                return _conditionListViewModel;
+            }
         }
 
         private List<NameValueItem> _creditRatings = null;

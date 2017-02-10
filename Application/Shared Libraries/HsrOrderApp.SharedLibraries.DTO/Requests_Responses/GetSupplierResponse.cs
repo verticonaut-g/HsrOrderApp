@@ -1,4 +1,5 @@
-﻿using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
+﻿using HsrOrderApp.SharedLibraries.DTO.Requests_Responses.Base;
+using Microsoft.Practices.EnterpriseLibrary.Validation.Validators;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,7 +10,7 @@ namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
 {
     [DataContract]
     [KnownType(typeof(SupplierDTO))]
-    public class GetSupplierResponse
+    public class GetSupplierResponse : ResponseType
     {
         public GetSupplierResponse()
         {

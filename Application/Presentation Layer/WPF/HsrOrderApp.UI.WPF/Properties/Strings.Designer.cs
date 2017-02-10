@@ -133,6 +133,87 @@ namespace HsrOrderApp.UI.WPF.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Durchschnittliche Vorlaufzeit.
+        /// </summary>
+        public static string ConditionDetailView_AverageLeadTime {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_AverageLeadTime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rechnungsbetrag des letzten Wareneingang.
+        /// </summary>
+        public static string ConditionDetailView_LastReceiptCost {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_LastReceiptCost", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum des letzten Wareneingang.
+        /// </summary>
+        public static string ConditionDetailView_LastReceiptDate {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_LastReceiptDate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maximale Bestellmenge.
+        /// </summary>
+        public static string ConditionDetailView_MaxOrderQuantity {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_MaxOrderQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Minimale Bestellmenge.
+        /// </summary>
+        public static string ConditionDetailView_MinOrderQuantity {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_MinOrderQuantity", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Produkt.
+        /// </summary>
+        public static string ConditionDetailView_Product {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_Product", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Standardpreis.
+        /// </summary>
+        public static string ConditionDetailView_StandardPrice {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_StandardPrice", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferantenkondition.
+        /// </summary>
+        public static string ConditionDetailView_Title {
+            get {
+                return ResourceManager.GetString("ConditionDetailView_Title", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Konditionen bearbeiten.
+        /// </summary>
+        public static string ConditionDetailViewModel_DisplayName {
+            get {
+                return ResourceManager.GetString("ConditionDetailViewModel_DisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Überdurchschnittlich.
         /// </summary>
         public static string CreditRating_AboveAverage {
@@ -876,6 +957,15 @@ namespace HsrOrderApp.UI.WPF.Properties {
         public static string SupplierDetailView_PurchasingWebUrl {
             get {
                 return ResourceManager.GetString("SupplierDetailView_PurchasingWebUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Lieferantenkonditionen.
+        /// </summary>
+        public static string SupplierDetailView_SubtitleConditions {
+            get {
+                return ResourceManager.GetString("SupplierDetailView_SubtitleConditions", resourceCulture);
             }
         }
         

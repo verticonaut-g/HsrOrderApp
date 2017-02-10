@@ -7,6 +7,9 @@ using HsrOrderApp.SharedLibraries.DTO;
 using HsrOrderApp.BL.DTOAdapters.Helper;
 using HsrOrderApp.BL.BusinessComponents;
 using HsrOrderApp.SharedLibraries.SharedEnums;
+using HsrOrderApp.BL.DomainModel.HelperObjects;
+using HsrOrderApp.SharedLibraries.DTO.Base;
+using HsrOrderApp.BL.DtoAdapters;
 
 namespace HsrOrderApp.BL.DTOAdapters
 {
@@ -41,9 +44,35 @@ namespace HsrOrderApp.BL.DTOAdapters
                 PreferredSupplierFlag = p.PreferredSupplierFlag,
                 ActiveFlag = p.ActiveFlag,
                 PurchasingWebServiceURL = p.PurchasingWebServiceURL,
-                Version = p.Version
+                Version = p.Version,
+                SupplierProduct = SupplierProductToDtos(p.SupplierProduct)
             };
 
+            return dto;
+        }
+
+        public static IList<SupplierProductDTO> SupplierProductToDtos(IQueryable<SupplierProduct> SuplierProducts)
+        {
+            IQueryable<SupplierProductDTO> supplierProducDTOs = from c in SuplierProducts
+                                                                select SupplierProductToDto(c);
+            return supplierProducDTOs.ToList();
+        }
+
+        public static SupplierProductDTO SupplierProductToDto(SupplierProduct c)
+        {
+            SupplierProductDTO dto = new SupplierProductDTO()
+            {
+                Id = c.ConditionId,
+                AverageLeadTime = c.AverageLeadTimeInDays,
+                LastReceiptCost = c.LastReceiptCost,
+                LastReceiptDate = c.LastReceiptDate,
+                MaxOrderQuantity = c.MaxOrderQuantity,
+                MinOrderQuantity = c.MinOrderQuantity,
+                StandardPrice = c.StandardPrice,
+                ProductId = c.Product.ProductId,
+                ProductName = c.Product.Name,
+                Version = c.Version
+            };
             return dto;
         }
 
@@ -66,6 +95,50 @@ namespace HsrOrderApp.BL.DTOAdapters
             };
             ValidationHelper.Validate(supplier);
             return supplier;
+        }
+
+        
+        public static IEnumerable<ChangeItem> GetChangeItems(SupplierDTO dto, Supplier supplier)
+        {
+            IEnumerable<ChangeItem> changeItems = from c in dto.Changes
+                                                  select
+                                                      new ChangeItem(c.ChangeType,
+                                                                     DtoChildToBusinessChild(c.Object,
+                                                                                             supplier));
+            return changeItems;
+        }
+
+        private static DomainObject DtoChildToBusinessChild(DTOVersionObject dto, Supplier supplier)
+        {
+            if (dto is AddressDTO)
+            {
+                return AddressAdapter.DtoToAddress((AddressDTO)dto);
+            }
+            else if (dto is SupplierProductDTO)
+            {
+                return DtoToSupplierProduct((SupplierProductDTO)dto, supplier);
+            }
+            return null;
+        }
+
+        public static SupplierProduct DtoToSupplierProduct(SupplierProductDTO dto, Supplier supplier)
+        {
+            SupplierProduct supplierProduct = new SupplierProduct
+            {
+                ConditionId = dto.Id,
+                AverageLeadTimeInDays = dto.AverageLeadTime,
+                LastReceiptCost = dto.LastReceiptCost,
+                LastReceiptDate = dto.LastReceiptDate,
+                MaxOrderQuantity = dto.MaxOrderQuantity,
+                MinOrderQuantity = dto.MinOrderQuantity,
+                StandardPrice = dto.StandardPrice,
+                Supplier = supplier,
+                Version = dto.Version,
+                Product = new Product { ProductId = dto.ProductId }
+            };
+
+            ValidationHelper.Validate(supplierProduct);
+            return supplierProduct;
         }
 
         #endregion

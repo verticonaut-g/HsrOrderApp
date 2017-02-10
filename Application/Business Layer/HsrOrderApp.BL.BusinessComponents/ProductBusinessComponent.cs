@@ -82,6 +82,7 @@ namespace HsrOrderApp.BL.BusinessComponents
         public void GetEstimatedDeliveryTime(int productId, out int unitsAvailable, out int estimatedDeliveryTimeInDays)
         {
             OrderBusinessComponent orderBC = DependencyInjectionHelper.GetOrderBusinessComponent();
+            SupplierBusinessComponent supplierBC = DependencyInjectionHelper.GetSupplierBusinessComponent();
             Product product = rep.GetById(productId);
 
             int unitsOrdered = orderBC.GetAllOrderDetails()
@@ -93,7 +94,20 @@ namespace HsrOrderApp.BL.BusinessComponents
                 unitsAvailable = 0;
 
             estimatedDeliveryTimeInDays = -1;
-            // Todo: Implement the logic to calculate the estimatedDelivertyTimeInDays (see SupplierCondition)
+            IQueryable<Supplier> defaultSuppliers = supplierBC.GetSuppliersByCriteria(SupplierSearchType.None, null, 0);
+            foreach (Supplier supplier in defaultSuppliers)
+            {
+                if (supplier.ActiveFlag && supplier.PreferredSupplierFlag)
+                {
+                    Supplier supplierWithCondition = supplierBC.GetSupplierById(supplier.SupplierId);
+                    SupplierProduct supProd = supplierWithCondition.SupplierProduct.FirstOrDefault(c => c.Product.ProductId == productId);
+                    if (supProd != null)
+                    {
+                        estimatedDeliveryTimeInDays = supProd.AverageLeadTimeInDays;
+                        return;
+                    }
+                }
+            }
         }
     }
 }

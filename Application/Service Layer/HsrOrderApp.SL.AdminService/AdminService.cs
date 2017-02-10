@@ -291,7 +291,7 @@ namespace HsrOrderApp.SL.AdminService
             GetSuppliersResponse response = new GetSuppliersResponse();
             SupplierBusinessComponent bc = DependencyInjectionHelper.GetSupplierBusinessComponent();
 
-            IQueryable<Supplier> suppliers = bc.GetSuppliersByCriteria(request.SearchType, request.SupplierName);
+            IQueryable<Supplier> suppliers = bc.GetSuppliersByCriteria(request.SearchType, request.SupplierName, request.Id);
             response.Suppliers = SupplierAdapter.SuppliersToDtos(suppliers);
 
             return response;

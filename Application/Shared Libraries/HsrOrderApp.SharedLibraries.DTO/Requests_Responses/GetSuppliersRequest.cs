@@ -18,5 +18,12 @@ namespace HsrOrderApp.SharedLibraries.DTO.Requests_Responses
 
         [DataMember]
         public string SupplierName { get; set; }
+
+        [DataMember]
+        public override int Id
+        {
+            get { return base.Id; }
+            set { base.Id = value; }
+        }
     }
 }

@@ -23,6 +23,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
         private bool _preferredSupplierFlag;
         private bool _activeFlag;
         private string _purchasingWebServiceURL;
+        private IList<SupplierProductDTO> _supplierProducts;
 
         public SupplierDTO()
         {
@@ -32,6 +33,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
             this.PreferredSupplierFlag = true;
             this.ActiveFlag = true;
             this.PurchasingWebServiceURL = string.Empty;
+            this.SupplierProduct = new List<SupplierProductDTO>();
         }
 
         [DataMember]
@@ -112,6 +114,21 @@ namespace HsrOrderApp.SharedLibraries.DTO
         {
             get { return (CreditRating)_creditRating; }
             set { _creditRating = (int)value; }
+        }
+
+        [DataMember]
+        [ObjectCollectionValidator(typeof(SupplierProductDTO))]
+        public IList<SupplierProductDTO> SupplierProduct
+        {
+            get { return _supplierProducts; }
+            set
+            {
+                if (value != _supplierProducts)
+                {
+                    this._supplierProducts = value;
+                    OnPropertyChanged(() => SupplierProduct);
+                }
+            }
         }
     }
 }

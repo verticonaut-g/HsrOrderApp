@@ -19,7 +19,10 @@ namespace HsrOrderApp.BL.DomainModel
             this.PreferredSupplierFlag = true;
             this.ActiveFlag = true;
             this.PurchasingWebServiceURL = string.Empty;
+            this.SupplierProduct = new List<SupplierProduct>().AsQueryable();
         }
+
+        public IQueryable<SupplierProduct> SupplierProduct { get; set; }
 
         public int SupplierId { get; set; }
         [StringLengthValidator(1, 150)]

@@ -234,6 +234,36 @@
     <data name="SupplierDetailView_PurchasingWebUrl" xml:space="preserve">
     <value>URL</value>
   </data>
+  <data name="SupplierDetailView_SubtitleConditions" xml:space="preserve">
+    <value>Lieferantenkonditionen</value>
+  </data>
+  <data name="ConditionDetailViewModel_DisplayName" xml:space="preserve">
+    <value>Konditionen bearbeiten</value>
+  </data>
+  <data name="ConditionDetailView_AverageLeadTime" xml:space="preserve">
+    <value>Durchschnittliche Vorlaufzeit</value>
+  </data>
+  <data name="ConditionDetailView_LastReceiptCost" xml:space="preserve">
+    <value>Rechnungsbetrag des letzten Wareneingang</value>
+  </data>
+  <data name="ConditionDetailView_LastReceiptDate" xml:space="preserve">
+    <value>Datum des letzten Wareneingang</value>
+  </data>
+  <data name="ConditionDetailView_MaxOrderQuantity" xml:space="preserve">
+    <value>Maximale Bestellmenge</value>
+  </data>
+  <data name="ConditionDetailView_MinOrderQuantity" xml:space="preserve">
+    <value>Minimale Bestellmenge</value>
+  </data>
+  <data name="ConditionDetailView_Product" xml:space="preserve">
+    <value>Produkt</value>
+  </data>
+  <data name="ConditionDetailView_StandardPrice" xml:space="preserve">
+    <value>Standardpreis</value>
+  </data>
+  <data name="ConditionDetailView_Title" xml:space="preserve">
+    <value>Lieferantenkondition</value>
+  </data>
   <data name="CustomerView_OpenOrders" xml:space="preserve">
     <value>Anzahl offene Bestellungen</value>
   </data>
