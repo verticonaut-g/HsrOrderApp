@@ -17,7 +17,7 @@ namespace HsrOrderApp.UI.WPF.ViewModels.Supplier
 
         protected override void LoadData()
         {
-            foreach (SupplierProductDTO orderDetail in ((SupplierDTO)ParentObject).SupplierProduct)
+            foreach (SupplierProductDTO orderDetail in ((SupplierDTO)ParentObject).SupplierProducts)
                 Items.Add(orderDetail); 
         }
 
