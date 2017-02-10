@@ -14,6 +14,12 @@
     });
 </script>
 
+@if (Model.HasRebate)
+{
+    <div class="alert alert-success" role="alert">
+        @Model.RebateText
+    </div>
+}
 
 <div id="detailView" class="form-horizontal">
     <hr />

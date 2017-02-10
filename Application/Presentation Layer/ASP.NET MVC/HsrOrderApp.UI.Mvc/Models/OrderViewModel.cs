@@ -1,8 +1,10 @@
-﻿using AutoMapper;
+﻿using System;
+using AutoMapper;
 using HsrOrderApp.SharedLibraries.DTO;
 using HsrOrderApp.SharedLibraries.SharedEnums;
 using System.Collections.Generic;
 using System.Linq;
+using HsrOrderApp.BL.DomainModel;
 
 namespace HsrOrderApp.UI.Mvc.Models
 {
@@ -34,7 +36,34 @@ namespace HsrOrderApp.UI.Mvc.Models
             {
                 _OrderDetails = value;
                 Model.Details = _OrderDetails.Items;
+
+                // calculate rebate
+                decimal rebate = new OrderRebateCalculator().calculateRebate(Model.TotalAmount());
+                if (rebate > 0)
+                {
+                    HasRebate = true;
+                    RebateText = string.Format("You've got rebate: {0}", rebate);
+                }
+                else
+                {
+                    HasRebate = false;
+                    RebateText = "Sorry - You've got no rebate.";
+                }
             }
+        }
+
+        private string _rebateText;
+        public String RebateText
+        {
+            get { return _rebateText; }
+            set { this._rebateText = value; }
+        }
+
+        private bool _hasRebate;
+        public Boolean HasRebate
+        {
+            get { return _hasRebate; }
+            set { this._hasRebate = value; }
         }
 
         public List<CustomerListDTO> Customers { get; set; }

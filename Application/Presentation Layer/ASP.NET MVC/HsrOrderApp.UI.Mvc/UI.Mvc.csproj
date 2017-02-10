@@ -394,6 +394,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Business Layer\HsrOrderApp.BL.DomainModel\BL.DomainModel.csproj">
+      <Project>{04B91F08-9014-400B-B452-1BA98AC3977A}</Project>
+      <Name>BL.DomainModel</Name>
+    </ProjectReference>
     <ProjectReference Include="..\..\..\Shared Libraries\HsrOrderApp.SharedLibraries.DTO\SharedLibraries.DTO.csproj">
       <Project>{d209c395-0953-4f41-a206-0b9646b9e48b}</Project>
       <Name>SharedLibraries.DTO</Name>
