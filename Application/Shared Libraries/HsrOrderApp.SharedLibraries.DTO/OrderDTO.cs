@@ -2,6 +2,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Runtime.Serialization;
 using HsrOrderApp.SharedLibraries.DTO.Base;
 using HsrOrderApp.SharedLibraries.SharedEnums;
@@ -105,7 +106,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
         }
 
         [DataMember]
-        [ObjectCollectionValidator(typeof (OrderDetailDTO))]
+        [ObjectCollectionValidator(typeof(OrderDetailDTO))]
         public IList<OrderDetailDTO> Details
         {
             get { return _details; }
@@ -118,6 +119,25 @@ namespace HsrOrderApp.SharedLibraries.DTO
                 }
             }
         }
+
+        public decimal TotalAmount()
+        {
+            if (Details == null)
+            {
+                return 0;
+            }
+            else
+            {
+                decimal total = 0;
+
+                foreach (OrderDetailDTO detail in Details)
+                {
+                    total += detail.TotalPrice;
+                }
+                return total;
+            }
+        }
+
 
         [SelfValidation]
         public void Validate(ValidationResults results)
