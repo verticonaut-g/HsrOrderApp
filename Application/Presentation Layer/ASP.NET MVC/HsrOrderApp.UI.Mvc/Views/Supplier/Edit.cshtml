@@ -20,8 +20,17 @@
         @Html.Partial("_SupplierFieldList", Model)
         
         <div class="form-group">
+            <div class="control-label col-md-2"></div>
+            <div class="col-md-10" style="background-color: #F0F0F0">
+                <h4>Products</h4>
+                @Html.Partial("../SupplierProduct/_ItemList", Model.SupplierProducts)
+                <hr />
+            </div>
+        </div>
+        
+        <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="@Strings.DetailDialog_OK" class="btn btn-default" />
+                <input type="submit" value="@Strings.DetailDialog_OK" class="btn btn-default btn-primary" />
             </div>
         </div>
     </div>

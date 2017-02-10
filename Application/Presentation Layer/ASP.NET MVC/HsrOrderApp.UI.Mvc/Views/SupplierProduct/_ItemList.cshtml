@@ -1,0 +1,67 @@
+﻿
+@model HsrOrderApp.UI.Mvc.Models.SupplierProductViewModel
+@using HsrOrderApp.UI.Mvc.Resources
+
+<p>
+    @if (!Model.IsReadOnly)
+    {
+        <button name="redirectButton" value="/SuppplierProduct/Create" class="btn btn-default">@Strings.NewCommand</button>
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Average LeadTime
+        </th>
+        <th>
+           Standard Price
+        </th>
+        <th>
+            Last Receipt Cost
+        </th>
+        <th>
+            Last Receipt Date
+        </th>
+        <th>
+            Min Quantity
+        </th>
+        <th>
+            May Quantity
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.Items)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.AverageLeadTime)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StandardPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastReceiptCost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastReceiptDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MinOrderQuantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MaxOrderQuantity)
+            </td>
+            <td>
+                @if (!Model.IsReadOnly)
+                {
+                    <div>
+                        <button name="redirectButton" value="/SupplierProduct/Edit/@item.Id" class="btn btn-xs btn-default">@Strings.EditCommand</button>
+                        <button name="redirectButton" value="/SupplierProduct/Details/@item.Id" class="btn btn-xs btn-default">@Strings.DetailsCommand</button>
+                        <button name="redirectButton" value="/SupplierProduct/Delete/@item.Id" class="btn btn-xs btn-danger">@Strings.DeleteCommand</button>
+                    </div>
+                }
+            </td>
+        </tr>
+    }
+</table>

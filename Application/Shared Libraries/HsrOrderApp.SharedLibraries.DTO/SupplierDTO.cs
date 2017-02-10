@@ -33,7 +33,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
             this.PreferredSupplierFlag = true;
             this.ActiveFlag = true;
             this.PurchasingWebServiceURL = string.Empty;
-            this.SupplierProduct = new List<SupplierProductDTO>();
+            this.SupplierProducts = new List<SupplierProductDTO>();
         }
 
         [DataMember]
@@ -118,7 +118,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
 
         [DataMember]
         [ObjectCollectionValidator(typeof(SupplierProductDTO))]
-        public IList<SupplierProductDTO> SupplierProduct
+        public IList<SupplierProductDTO> SupplierProducts
         {
             get { return _supplierProducts; }
             set
@@ -126,7 +126,7 @@ namespace HsrOrderApp.SharedLibraries.DTO
                 if (value != _supplierProducts)
                 {
                     this._supplierProducts = value;
-                    OnPropertyChanged(() => SupplierProduct);
+                    OnPropertyChanged(() => SupplierProducts);
                 }
             }
         }

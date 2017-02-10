@@ -14,8 +14,27 @@ namespace HsrOrderApp.UI.Mvc.Models
     public class SupplierViewModel : DetailViewModelBase<SupplierDTO>
     {
         public SupplierViewModel() { }
-        public SupplierViewModel(SupplierDTO model, bool isNew) : base(model, isNew)
+        public SupplierViewModel(SupplierDTO model, SupplierProductViewModel supplierProducts, bool isNew) : base(model, isNew)
         {
+            _supplierProducts = supplierProducts;
+        }
+
+        private SupplierProductViewModel _supplierProducts;
+        public SupplierProductViewModel SupplierProducts
+        {
+            get
+            {
+                if (_supplierProducts != null)
+                {
+                    _supplierProducts.Items = Model.SupplierProducts.ToList();
+                }
+                return _supplierProducts;
+            }
+            set
+            {
+                _supplierProducts = value;
+                Model.SupplierProducts = _supplierProducts.Items;
+            }
         }
 
         public void ApplyFormAttributes(SupplierDTO source)

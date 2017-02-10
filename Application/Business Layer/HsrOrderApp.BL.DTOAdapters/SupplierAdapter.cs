@@ -45,7 +45,7 @@ namespace HsrOrderApp.BL.DTOAdapters
                 ActiveFlag = p.ActiveFlag,
                 PurchasingWebServiceURL = p.PurchasingWebServiceURL,
                 Version = p.Version,
-                SupplierProduct = SupplierProductToDtos(p.SupplierProduct)
+                SupplierProducts = SupplierProductToDtos(p.SupplierProduct)
             };
 
             return dto;
